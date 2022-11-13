@@ -14,6 +14,8 @@ function App() {
   let start = ''
   let end = ''
 
+  let expectedTime = ''
+
   function parseAddress() {
 
     if (!document.getElementById('address1').value) return;
@@ -54,10 +56,6 @@ function App() {
 
   }
 
-  async function () {
-
-  }
-
   async function getRoute(start, end) {
     await getCoordinates();
     console.log(start, end)
@@ -74,8 +72,9 @@ function App() {
     fetch(url, data).then(res => res.json()).then(data => {
       let route = data['result']['trip']['routes'][0]
       let routeId = route['id']
-      let routeTime = route['travelTimeMinutes']
       let totalDistance = route['totalDistance']
+      this.setState({expectTime:route['travelTimeMinutes']})
+      console.log(expectedTime)
     })
   }
 
@@ -117,6 +116,8 @@ function App() {
       }}>Search</button>
       </div>
       <Map />
+      <br/>
+      <div class="time">Expected Time: {expectedTime}</div>
     </>
   );
 };

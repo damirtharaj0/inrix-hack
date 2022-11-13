@@ -1,35 +1,35 @@
 {
-    "docType": "string",
-    "copyright": "string",
-    "versionNumber": "string",
-    "createdDate": "yyyy-mm-ddThh:mm:ssZ",
-    "statusId": "number",
-    "statusText": "string",
-    "responseId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "docType": "GetRoute",
+    "copyright": "Copyright INRIX Inc.",
+    "versionNumber": "21.0",
+    "createdDate": "2022-11-13T02:34:26Z",
+    "statusId": 0,
+    "statusText": "OK",
+    "responseId": "4b93a0cf-a6ec-4e34-93fa-e0c9c51012d7",
     "result": {
         "trip": {
-            "tripId": "string",
+            "tripId": "20118101",
             "wayPoints": [
                 {
-                    "id": "number",
+                    "id": 1,
                     "geometry": {
-                        "type": "string",
+                        "type": "Point",
                         "coordinates": [
                             [
-                                "lng",
-                                "lat"
+                                -122.44255,
+                                37.770581
                             ]
                         ]
                     }
                 },
                 {
-                    "id": "number",
+                    "id": 2,
                     "geometry": {
-                        "type": "string",
+                        "type": "Point",
                         "coordinates": [
                             [
-                                "lng",
-                                "lat"
+                                -122.442527,
+                                37.765297
                             ]
                         ]
                     }
@@ -37,60 +37,132 @@
             ],
             "routes": [
                 {
-                    "uncongestedTravelTimeMinutes": "number",
-                    "routeQuality": "number",
-                    "id": "string",
-                    "hasClosures": "boolean",
-                    "travelTimeMinutes": "number",
-                    "abnormalityMinutes": "number",
-                    "averageSpeed": "number",
-                    "statusId": "number",
-                    "totalDistance": "float",
-                    "routeTransportStatus": "number",
+                    "uncongestedTravelTimeMinutes": 3,
+                    "routeQuality": 3,
+                    "id": "20118101",
+                    "hasClosures": false,
+                    "travelTimeMinutes": 4,
+                    "abnormalityMinutes": 0,
+                    "averageSpeed": 8,
+                    "statusId": 0,
+                    "totalDistance": "0.5",
+                    "routeTransportStatus": 0,
                     "summary": {
-                        "text": "string",
+                        "text": "Via CENTRAL AVE, BUENA VISTA AVE W and UPPER TER",
                         "roads": [
                             {
-                                "roadClass": "number",
-                                "name": "string"
+                                "roadClass": 3,
+                                "name": "CENTRAL AVE"
                             },
                             {
-                                "roadClass": "number",
-                                "name": "string"
+                                "roadClass": 3,
+                                "name": "BUENA VISTA AVE W"
                             },
                             {
-                                "roadClass": "number",
-                                "name": "string"
+                                "roadClass": 3,
+                                "name": "UPPER TER"
                             }
                         ]
                     },
-                    "description": "string",
+                    "description": "User requested directions from Origin to Destination on 2022-11-13T02:34:26Z",
                     "incidents": [
-                        "number",
-                        "number"
+                        167535518
                     ],
                     "boundingBox": {
                         "corner1": {
-                            "type": "string",
+                            "type": "Point",
                             "coordinates": [
                                 [
-                                    "lng",
-                                    "lat"
+                                    -122.44387149810791,
+                                    37.770558905016905
                                 ]
                             ]
                         },
                         "corner2": {
-                            "type": "string",
+                            "type": "Point",
                             "coordinates": [
                                 [
-                                    "lng",
-                                    "lat"
+                                    -122.4425265851855,
+                                    37.76529832011938
                                 ]
                             ]
                         }
                     }
                 }
             ]
-        }
+        },
+        "incidents": [
+            {
+                "id": 167535518,
+                "version": 1,
+                "type": 1,
+                "severity": 0,
+                "eventCode": 703,
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        [
+                            -122.44334,
+                            37.77046
+                        ]
+                    ]
+                },
+                "impacting": false,
+                "startTime": "2022-10-24T08:15:43.627Z",
+                "endTime": "2022-12-21T08:00:00Z",
+                "descriptions": {
+                    "long": [
+                        {
+                            "value": "Sewer works, paving repairs and construction work on Buena Vista Ave Westbound from Baker St to Haight St.",
+                            "isLocal": true,
+                            "lang": "en-US"
+                        }
+                    ],
+                    "short": [
+                        {
+                            "value": "Buena Vista Ave W/B: sewer works from Baker St to Haight St",
+                            "isLocal": true,
+                            "lang": "en-US"
+                        }
+                    ]
+                },
+                "tmcs": [
+                    "105-51999"
+                ],
+                "parameterizedDescription": {
+                    "eventCode": 703,
+                    "eventText": "Sewer Works, paving Repairs, construction work",
+                    "roadName": "Buena Vista Ave",
+                    "direction": "Westbound",
+                    "crossroad1": "Baker St / Buena Vista Ave / Haight St",
+                    "crossRoad1TmcCode": "105N52000",
+                    "crossroad2": "Buena Vista Ave / Haight St",
+                    "crossRoad2TmcCode": "105N51999",
+                    "position1": "from",
+                    "position2": "to"
+                },
+                "delayImpact": {
+                    "fromTypicalMinutes": 0,
+                    "fromFreeFlowMinutes": 0,
+                    "distance": 0.166527479456
+                },
+                "head": {
+                    "latitude": 37.77046,
+                    "longitude": -122.44334
+                },
+                "tails": [
+                    {
+                        "latitude": 37.77085,
+                        "longitude": -122.44032
+                    }
+                ],
+                "lastDetourPoints": [
+                    {
+                        "latitude": 37.77146816253662,
+                        "longitude": -122.43539571762085
+                    }
+                ]
+            }
+        ]
     }
 }

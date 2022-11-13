@@ -28,3 +28,9 @@ input {
   font-family: "Comfortaa", cursive;
   border-color: white;
 }
+.time {
+  display: flex;
+  justify-content: center;
+  color: white;
+
+}
