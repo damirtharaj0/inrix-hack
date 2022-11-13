@@ -1,6 +1,7 @@
 import React from "react";
 import Map from "./Map";
 import getRoute from "./Api";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
     fetch(url, data).then(res => res.json())
   }
 
-  function callApi() {
+  async function callApi() {
     let appId = "z4limdy5g3";
     let hashToken = "ejRsaW1keTVnM3w4bE9sODVPM1FDNk1UdWpaMWlIM2E1bExoR243SmxBTXI3ZXpFbFI3";
     let url = `https://api.iq.inrix.com/auth/v1/appToken?appId=${appId}&hashToken=${hashToken}`;
@@ -79,10 +80,10 @@ function App() {
       method: 'GET'
     };
 
-    let response = fetch(url, requestOptions).then(res => res.json()).then(data => {
-      token = data.result.token;
-      console.log(token)
-    });
+    let response = await fetch(url, requestOptions)
+    let json = await response.json();
+    let output = json.result.token;
+    console.log(output)
   }
 
   callApi()
