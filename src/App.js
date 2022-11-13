@@ -6,11 +6,6 @@ import "./index.css";
 
 function App() {
 
-  let token = ''
-
-  const start = "37.770581%2C-122.442550"
-  const end = "37.765297%2C-122.442527"
-
   let address1 = ''
   let zip1 = ''
   let address2 = ''
@@ -53,7 +48,8 @@ function App() {
 
   }
 
-  function getRoute(start, end) {
+  async function getRoute(start, end) {
+    let token = await callApi()
     const url = `https://api.iq.inrix.com/findRoute?wp_1=${start}&wp_2=${end}&format=json&accessToken=${token}`;
   
     const data = {
@@ -63,7 +59,7 @@ function App() {
         },
     };
     
-    fetch(url, data).then(res => res.json())
+    fetch(url, data).then(res => res.json()).then(data => console.log(data))
   }
 
   async function callApi() {
@@ -83,12 +79,9 @@ function App() {
 
     let response = await fetch(url, requestOptions)
     let json = await response.json();
-    let output = json.result.token;
-    console.log(output)
+    let output = await json.result.token;
+    return output
   }
-
-  callApi()
-  getRoute(start, end);
 
   return (
     <>
@@ -102,8 +95,11 @@ function App() {
       <br/>
       Zip : <input id='zip2'></input>
       <button onClick={event => {
+        const start = "37.770581%2C-122.442550"
+        const end = "37.765297%2C-122.442527"
         parseAddress();
         getCoordinates();
+        getRoute(start, end);
       }}>Search</button>
       </div>
       <Map />
