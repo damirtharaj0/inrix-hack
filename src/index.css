@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: "Comfortaa", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #002d72;
+  font: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px;
+  color: white;
+  font-family: "Comfortaa", cursive;
+}
+button {
+  font-family: "Comfortaa", cursive;
+  border-radius: 10%;
+  border-color: white;
+}
+input {
+  font-family: "Comfortaa", cursive;
+  border-color: white;
+}

@@ -1,11 +1,12 @@
 import { GoogleMap, useLoadScript, } from '@react-google-maps/api'
 import React from 'react'
+import "./map.css";
 
 export default function Map() {
 
     const mapContainerStyle = {
-        width: '100vw',
-        height: '100vh',
+        width: '50vw',
+        height: '80vh',
     };
     
     const center = {
@@ -22,7 +23,7 @@ export default function Map() {
 
 
   return (
-    <div>
+    <div class = "googlemap">
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             zoom={20}
