@@ -1,0 +1,96 @@
+{
+    "docType": "string",
+    "copyright": "string",
+    "versionNumber": "string",
+    "createdDate": "yyyy-mm-ddThh:mm:ssZ",
+    "statusId": "number",
+    "statusText": "string",
+    "responseId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "result": {
+        "trip": {
+            "tripId": "string",
+            "wayPoints": [
+                {
+                    "id": "number",
+                    "geometry": {
+                        "type": "string",
+                        "coordinates": [
+                            [
+                                "lng",
+                                "lat"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "id": "number",
+                    "geometry": {
+                        "type": "string",
+                        "coordinates": [
+                            [
+                                "lng",
+                                "lat"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "routes": [
+                {
+                    "uncongestedTravelTimeMinutes": "number",
+                    "routeQuality": "number",
+                    "id": "string",
+                    "hasClosures": "boolean",
+                    "travelTimeMinutes": "number",
+                    "abnormalityMinutes": "number",
+                    "averageSpeed": "number",
+                    "statusId": "number",
+                    "totalDistance": "float",
+                    "routeTransportStatus": "number",
+                    "summary": {
+                        "text": "string",
+                        "roads": [
+                            {
+                                "roadClass": "number",
+                                "name": "string"
+                            },
+                            {
+                                "roadClass": "number",
+                                "name": "string"
+                            },
+                            {
+                                "roadClass": "number",
+                                "name": "string"
+                            }
+                        ]
+                    },
+                    "description": "string",
+                    "incidents": [
+                        "number",
+                        "number"
+                    ],
+                    "boundingBox": {
+                        "corner1": {
+                            "type": "string",
+                            "coordinates": [
+                                [
+                                    "lng",
+                                    "lat"
+                                ]
+                            ]
+                        },
+                        "corner2": {
+                            "type": "string",
+                            "coordinates": [
+                                [
+                                    "lng",
+                                    "lat"
+                                ]
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

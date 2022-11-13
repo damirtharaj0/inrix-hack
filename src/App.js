@@ -10,6 +10,9 @@ function App() {
   let address2 = ''
   let zip2 = ''
 
+  let start = ''
+  let end = ''
+
   function parseAddress() {
 
     if (!document.getElementById('address1').value) return;
@@ -23,7 +26,7 @@ function App() {
     zip2 = document.getElementById('zip2').value
   }
 
-  function getCoordinates() {
+  async function getCoordinates() {
     let address1Arr = address1.split(' ');
     if (address1Arr.length < 2) return;
     let url1 = `https://api.geoapify.com/v1/geocode/search?housenum=${address1Arr[0]}&street=${address1Arr.slice(1).join('%20')}&city=San%20Francisco&zip=${zip1}&state=CA&country=United%20States&apiKey=9b0a76ae68984a9da39f81ec480d0a17`;
@@ -31,6 +34,8 @@ function App() {
     fetch(url1).then(res => res.json()).then(data => {
       let long1 = data['features'][0]['bbox'][0]
       let lat1 = data['features'][0]['bbox'][1]
+
+      start = lat1 + '%2c' + long1;
 
     })
 
@@ -43,11 +48,18 @@ function App() {
       let long2 = data['features'][0]['bbox'][0]
       let lat2 = data['features'][0]['bbox'][1]
 
+      end = lat2 + '%2c' + long2;
     })
 
   }
 
+  async function () {
+
+  }
+
   async function getRoute(start, end) {
+    await getCoordinates();
+    console.log(start, end)
     let token = await callApi()
     const url = `https://api.iq.inrix.com/findRoute?wp_1=${start}&wp_2=${end}&format=json&accessToken=${token}`;
   
@@ -58,7 +70,12 @@ function App() {
         },
     };
     
-    fetch(url, data).then(res => res.json()).then(data => console.log(data))
+    fetch(url, data).then(res => res.json()).then(data => {
+      let route = data['result']['trip']['routes'][0]
+      let routeId = route['id']
+      let routeTime = route['travelTimeMinutes']
+      let totalDistance = route['totalDistance']
+    })
   }
 
   async function callApi() {
@@ -92,10 +109,7 @@ function App() {
       <br/>
       Zip : <input id='zip2'></input>
       <button onClick={event => {
-        const start = "37.770581%2C-122.442550"
-        const end = "37.765297%2C-122.442527"
         parseAddress();
-        getCoordinates();
         getRoute(start, end);
       }}>Search</button>
       <Map />
