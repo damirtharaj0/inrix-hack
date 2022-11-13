@@ -2,6 +2,7 @@ import React from "react";
 import Map from "./Map";
 import getRoute from "./Api";
 import { wait } from "@testing-library/user-event/dist/utils";
+import "./index.css";
 
 function App() {
 
@@ -101,6 +102,8 @@ function App() {
 
   return (
     <>
+      <div class = "SearchBar">
+      <br/>
       Address :<input id='address1'></input>
       <br/>
       Zip : <input id='zip1'></input>
@@ -112,6 +115,7 @@ function App() {
         parseAddress();
         getRoute(start, end);
       }}>Search</button>
+      </div>
       <Map />
     </>
   );
